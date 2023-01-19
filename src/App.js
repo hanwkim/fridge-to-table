@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -6,9 +7,9 @@ function App() {
 		<BrowserRouter>
 			<Header />
       <Routes>
-        {/* <Route to='/' element={<HomePage />} /> */}
-        {/* <Route to='/recipes' element={<RecipeListPage />} />
-        <Route to='/recipes/:id' element={<RecipePage />} /> */}
+        <Route path='/' element={<HomePage />} />
+        {/* <Route path='/recipes' element={<RecipeListPage />} />
+        <Route path='/recipes/:id' element={<RecipePage />} /> */}
       </Routes>
 		</BrowserRouter>
 	);
