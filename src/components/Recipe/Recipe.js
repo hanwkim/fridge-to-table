@@ -1,7 +1,7 @@
 import "./Recipe.scss";
+import { v4 as uuid } from "uuid";
 
 export default function Recipe({ recipe }) {
-
 	let ingredientArray = [];
 
 	for (let i = 1; i <= 20; i++) {
@@ -18,9 +18,9 @@ export default function Recipe({ recipe }) {
 			<img className="recipe__image" src={recipe.strMealThumb}></img>
 			<h4 className="recipe__header">Ingredients</h4>
 			<ul className="recipe__list">
-                {ingredientArray.map((ingredient) => {
-                    return <li className="recipe__list-item">{ingredient}</li>
-                })}
+				{ingredientArray.map((ingredient) => {
+					return <li key={uuid()} className="recipe__list-item">{ingredient}</li>;
+				})}
 			</ul>
 			<p className="recipe__instructions">{recipe.strInstructions}</p>
 		</>

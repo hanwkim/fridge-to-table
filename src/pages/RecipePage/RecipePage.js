@@ -19,7 +19,7 @@ export default function RecipePage() {
 		} catch (error) {
 			console.log(error);
 		}
-	}, []);
+	}, [id]);
 
 	return (
 		<section className="recipe-page">
