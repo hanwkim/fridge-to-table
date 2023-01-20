@@ -22,7 +22,7 @@ export default function Header() {
 						placeholder="What's in your fridge?"
 						className="nav__input"
 					></input>
-					<button type="submit">Search</button>
+					<button type="submit" className="nav__button">Search</button>
 				</form>
 			</nav>
 		</header>

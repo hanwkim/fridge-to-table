@@ -28,7 +28,7 @@ export default function RecipeListPage() {
         <section className="list-page">
             {recipeList && recipeList.map((recipe) => {
                 return (
-                <Link key={recipe.idMeal} to={`/recipes/${recipe.idMeal}`} >
+                <Link className="list-page__link" key={recipe.idMeal} to={`/recipes/${recipe.idMeal}`} >
                     <RecipeCard recipe={recipe} />
                 </Link>)
             })}

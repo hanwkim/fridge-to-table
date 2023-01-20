@@ -1,7 +1,7 @@
 import "./HomePage.scss";
 import fridgeOpen from "../../assets/images/fridge-open.png";
 import fridgeClosed from "../../assets/images/fridge-closed.png";
-import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import RecipeCardHome from "../../components/RecipeCardHome/RecipeCardHome";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ export default function HomePage() {
 
 	function clickHandler() {
 		let randomArray = [];
-		
+
 		let randomNumber = Math.round(Math.random() * 14);
 		let randomNumber2 = Math.round(Math.random() * 14);
 		let randomNumber3 = Math.round(Math.random() * 14);
@@ -61,37 +61,48 @@ export default function HomePage() {
 	return (
 		<main className="main">
 			<section className="main__container">
-				{ingredientList &&
-					ingredientList.map((ingredient) => {
-						return (
-							<Link to={`/recipes?i=${ingredient.name}`}>
-								<img className="ingredient__image" src={ingredient.src}></img>
-								<p>{ingredient.name}</p>
-							</Link>
-						);
-					})}
-				<img
-					onClick={clickHandler}
-					src={ingredientList ? fridgeOpen : fridgeClosed}
-					className="main__image"
-				></img>
-				{!recipeList && (
-					<p className="main__placeholder">
-						Click The Fridge For Some Suggested Recipes!
-					</p>
-				)}
-				{recipeList &&
-					recipeList.map((recipe) => {
-						return (
-							<Link
-								key={recipe.idMeal}
-								to={`/recipes/${recipe.idMeal}`}
-							>
-								<RecipeCard recipe={recipe} />
-							</Link>
-						);
-					})}
+				<div className="main__ingredients">
+					{ingredientList &&
+						ingredientList.map((ingredient) => {
+							return (
+								<Link to={`/recipes?i=${ingredient.name}`}>
+									<div className="ingredient">
+										<img
+											className="ingredient__image"
+											src={ingredient.src}
+										></img>
+										<span>{ingredient.name}</span>
+									</div>
+								</Link>
+							);
+						})}
+				</div>
+				<div className="main__image-container">
+					<img
+						onClick={clickHandler}
+						src={ingredientList ? fridgeOpen : fridgeClosed}
+						className="main__image"
+					></img>
+				</div>
+				<div className="main__recipes">
+					{recipeList &&
+						recipeList.map((recipe) => {
+							return (
+								<Link
+									key={recipe.idMeal}
+									to={`/recipes/${recipe.idMeal}`}
+								>
+									<RecipeCardHome recipe={recipe} />
+								</Link>
+							);
+						})}
+				</div>
 			</section>
+			{!recipeList && (
+				<p className="main__placeholder">
+					Click The Fridge For Some Suggested Recipes!
+				</p>
+			)}
 		</main>
 	);
 }
