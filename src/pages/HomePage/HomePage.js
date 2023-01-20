@@ -11,31 +11,26 @@ export default function HomePage() {
 	const BASE_API_URL = "https://www.themealdb.com/api/json/v1/1/random.php";
 	const [recipeList, setRecipeList] = useState(null);
 	const [ingredientList, setIngredientList] = useState(null);
+	const [isFridgeOpen, setIsFridgeOpen] = useState(false);
 
 	function clickHandler() {
-		let randomArray = [];
+		setIsFridgeOpen(!isFridgeOpen);
+	}
 
-		let randomNumber = Math.round(Math.random() * 14);
-		let randomNumber2 = Math.round(Math.random() * 14);
-		let randomNumber3 = Math.round(Math.random() * 14);
+	useEffect(() => {
+		if (isFridgeOpen) {
+			let randomNumber = Math.round(Math.random() * 14);
+			let randomNumber2 = Math.round(Math.random() * 14);
+			let randomNumber3 = Math.round(Math.random() * 14);
 
-		let randomIngredients = [
-			ingredients[randomNumber],
-			ingredients[randomNumber2],
-			ingredients[randomNumber3],
-		];
+			let randomIngredients = [
+				ingredients[randomNumber],
+				ingredients[randomNumber2],
+				ingredients[randomNumber3],
+			];
+			setIngredientList(randomIngredients);
 
-		setIngredientList(randomIngredients);
-
-		console.log(randomIngredients);
-
-		axios.get(BASE_API_URL).then(({ data }) => {
-			let recipeObject = {
-				strMeal: data.meals[0].strMeal,
-				strMealThumb: data.meals[0].strMealThumb,
-				idMeal: data.meals[0].idMeal,
-			};
-			randomArray.push(recipeObject);
+			let randomArray = [];
 
 			axios.get(BASE_API_URL).then(({ data }) => {
 				let recipeObject = {
@@ -52,11 +47,23 @@ export default function HomePage() {
 						idMeal: data.meals[0].idMeal,
 					};
 					randomArray.push(recipeObject);
-					setRecipeList(randomArray);
+
+					axios.get(BASE_API_URL).then(({ data }) => {
+						let recipeObject = {
+							strMeal: data.meals[0].strMeal,
+							strMealThumb: data.meals[0].strMealThumb,
+							idMeal: data.meals[0].idMeal,
+						};
+						randomArray.push(recipeObject);
+						setRecipeList(randomArray);
+					});
 				});
 			});
-		});
-	}
+		} else {
+			setIngredientList(null);
+			setRecipeList(null);
+		}
+	}, [isFridgeOpen]);
 
 	return (
 		<main className="main">
@@ -80,7 +87,7 @@ export default function HomePage() {
 				<div className="main__image-container">
 					<img
 						onClick={clickHandler}
-						src={ingredientList ? fridgeOpen : fridgeClosed}
+						src={isFridgeOpen ? fridgeOpen : fridgeClosed}
 						className="main__image"
 					></img>
 				</div>
@@ -98,9 +105,22 @@ export default function HomePage() {
 						})}
 				</div>
 			</section>
-			{!recipeList && (
+			{isFridgeOpen && (
+				<>
+					<p className="main__placeholder">
+						Try out some popular ingredient searches on the left, or
+						popular recipes on the right!
+					</p>
+					<p className="main__placeholder">
+						Or click me again to close me and save electricity!
+					</p>
+				</>
+			)}
+
+			{!isFridgeOpen && (
 				<p className="main__placeholder">
-					Click The Fridge For Some Suggested Recipes!
+					My name is Fridgy, and I'm here to help you cook. Try
+					clicking me!
 				</p>
 			)}
 		</main>

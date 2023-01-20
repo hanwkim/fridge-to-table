@@ -2,9 +2,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border: 0.1rem solid black;
     border-radius: 4px;
     margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    transition: 0.5s;
+    position: relative;
+    z-index: 1;
+    background-color: rgb(241, 221, 165);
+    height: 90%;
+    text-align: center;
+
+    &:hover {
+        position: relative;
+        z-index: 2;
+        transform: scale(1.5, 1.5);
+        background-color: rgb(240, 197, 81);
+    }
 
     &__image {
         width: 8rem;

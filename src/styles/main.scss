@@ -1,3 +1,5 @@
+@use './partials/font';
+
 html {
     font-size: 62.5%;
 }
@@ -8,8 +10,11 @@ html {
 
 body {
     font-size: 1.6rem;
+    font-family: 'Quicksand';
+    background-color: rgb(246, 247, 210);
 }
 
 a {
     text-decoration: none;
+    color: black;
 }

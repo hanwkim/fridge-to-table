@@ -7,6 +7,7 @@ export default function Header() {
 	function submitHandler(event) {
 		event.preventDefault();
 		navigate(`/recipes?i=${event.target.search.value}`);
+		event.target.reset();
 	}
 
 	return (
