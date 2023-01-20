@@ -1,47 +1,62 @@
 [
 	{
-		"name": "Chicken"
+		"name": "Chicken",
+		"src": "http://localhost:8080/chicken.png"
 	},
 	{
-		"name": "Tomato"
+		"name": "Tomato",
+		"src": "http://localhost:8080/tomato.jpg"
 	},
 	{
-		"name": "Beef"
+		"name": "Beef",
+		"src": "http://localhost:8080/beef.png"
 	},
 	{
-		"name": "Onion"
+		"name": "Onion",
+		"src": "http://localhost:8080/onion.png"
 	},
 	{
-		"name": "Garlic"
+		"name": "Garlic",
+		"src": "http://localhost:8080/garlic.jpeg"
 	},
 	{
-		"name": "Soy Sauce"
+		"name": "Soy Sauce",
+		"src": "http://localhost:8080/soy-sauce.jpg"
 	},
 	{
-		"name": "Mushrooms"
+		"name": "Mushrooms",
+		"src": "http://localhost:8080/mushroom.png"
 	},
 	{
-		"name": "Avocado"
+		"name": "Avocado",
+		"src": "http://localhost:8080/avocado.png"
 	},
 	{
-		"name": "Salmon"
+		"name": "Salmon",
+		"src": "http://localhost:8080/salmon.jpeg"
 	},
 	{
-		"name": "Bacon"
+		"name": "Bacon",
+		"src": "http://localhost:8080/bacon.jpg"
 	},
 	{
-		"name": "Eggs"
+		"name": "Eggs",
+		"src": "http://localhost:8080/eggs.jpeg"
 	},
 	{
-		"name": "Rice"
+		"name": "Rice",
+		"src": "http://localhost:8080/rice.jpg"
 	},
 	{
-		"name": "Milk"
+		"name": "Milk",
+		"src": "http://localhost:8080/milk.png"
 	},
 	{
-		"name": "Potatoes"
+		"name": "Potatoes",
+		"src": "http://localhost:8080/potatoes.png"
 	},
 	{
-		"name": "Cabbage"
+		"name": "Cabbage",
+		"src": "http://localhost:8080/cabbage.png"
 	}
 ]

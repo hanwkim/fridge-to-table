@@ -1,3 +1,4 @@
+import "./styles/main.scss"
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import RecipePage from "./pages/RecipePage/RecipePage";

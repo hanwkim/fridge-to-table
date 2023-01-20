@@ -1,5 +1,4 @@
 import "./HomePage.scss";
-import fridge from "../../assets/images/fridge.png";
 import fridgeOpen from "../../assets/images/fridge-open.png";
 import fridgeClosed from "../../assets/images/fridge-closed.png";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
@@ -15,6 +14,7 @@ export default function HomePage() {
 
 	function clickHandler() {
 		let randomArray = [];
+		
 		let randomNumber = Math.round(Math.random() * 14);
 		let randomNumber2 = Math.round(Math.random() * 14);
 		let randomNumber3 = Math.round(Math.random() * 14);
@@ -65,13 +65,14 @@ export default function HomePage() {
 					ingredientList.map((ingredient) => {
 						return (
 							<Link to={`/recipes?i=${ingredient.name}`}>
+								<img className="ingredient__image" src={ingredient.src}></img>
 								<p>{ingredient.name}</p>
 							</Link>
 						);
 					})}
 				<img
 					onClick={clickHandler}
-					src={recipeList ? fridgeOpen : fridgeClosed}
+					src={ingredientList ? fridgeOpen : fridgeClosed}
 					className="main__image"
 				></img>
 				{!recipeList && (
