@@ -1,18 +1,19 @@
-import { useNavigate } from 'react-router-dom';
-import './Header.scss';
+import { Link, useNavigate } from "react-router-dom";
+import "./Header.scss";
 
 export default function Header() {
 	const navigate = useNavigate();
 
 	function submitHandler(event) {
 		event.preventDefault();
-		navigate(`/recipes?i=${event.target.search.value}`)
+		navigate(`/recipes?i=${event.target.search.value}`);
 	}
-
 
 	return (
 		<header className="header">
-			<h1 className="header__title">Fridge to Table</h1>
+			<Link to="/" className="header__title">
+				Fridge to Table
+			</Link>
 			<nav className="nav">
 				<form onSubmit={submitHandler} className="nav__form">
 					<input

@@ -12,6 +12,9 @@ export default function Recipe({ recipe }) {
 		}
 	}
 
+	let splitUrl = recipe.strYoutube.split("=");
+	let youtubeTag = splitUrl[1];
+
 	return (
 		<>
 			<h3 className="recipe__title">{recipe.strMeal}</h3>
@@ -19,10 +22,19 @@ export default function Recipe({ recipe }) {
 			<h4 className="recipe__header">Ingredients</h4>
 			<ul className="recipe__list">
 				{ingredientArray.map((ingredient) => {
-					return <li key={uuid()} className="recipe__list-item">{ingredient}</li>;
+					return (
+						<li key={uuid()} className="recipe__list-item">
+							{ingredient}
+						</li>
+					);
 				})}
 			</ul>
 			<p className="recipe__instructions">{recipe.strInstructions}</p>
+			<iframe
+				width="420"
+				height="315"
+				src={`https://www.youtube.com/embed/${youtubeTag}`}
+			></iframe>
 		</>
 	);
 }
